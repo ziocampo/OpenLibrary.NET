@@ -3,11 +3,16 @@ using System.Formats.Asn1;
 using System.Net;
 using System.Net.Http.Json;
 using System.Text.RegularExpressions;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Http.Diagnostics;
+using Microsoft.Extensions.Http.Resilience;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenLibraryNET.Data;
 using OpenLibraryNET.Loader;
 using OpenLibraryNET.Utility;
+using Polly;
 
 namespace OpenLibraryNET
 {
@@ -84,15 +89,17 @@ namespace OpenLibraryNET
                 UseCookies = true,
                 CookieContainer = _cookieContainer
             };
-            services.AddHttpClient(httpClientName).ConfigurePrimaryHttpMessageHandler(() => _httpHandler).AddHttpMessageHandler<OperationKeyHandler>()
-                .AddStandardResilienceHandler(configureOptions);
+            services.AddHttpClient(httpClientName)
+                    .ConfigurePrimaryHttpMessageHandler(() => _httpHandler)
+                    //.AddHttpMessageHandler<OperationKeyHandler>()
+                    .AddStandardResilienceHandler(configureOptions);
             if (logBuilder != null)
             {
                 services.AddLogging(logBuilder);
             }
             ServiceProvider provider = services.BuildServiceProvider();
             _httpClientFactory = provider.GetService<IHttpClientFactory>();
-            _httpClient = _httpClientFactory.CreateClient(httpClientName);// +"-standard");
+            _httpClient = _httpClientFactory.CreateClient(httpClientName);
 
             _work = new OLWorkLoader(_httpClient);
             _author = new OLAuthorLoader(_httpClient);
