@@ -74,8 +74,8 @@ public class GetHashCodeGenerator : ISourceGenerator
     {
         StringBuilder sb = new StringBuilder();
 
-        sb.Append("///<summary>\n///Serves as the default hash function.\n///IEnumerables are hashed element-wise.\n///</summary>\n///<returns>A hash code for the current object.</returns>\n");
-        sb.Append($"[System.CodeDom.Compiler.GeneratedCode(\"{Utility.ToolName}\", \"{Utility.ToolVersion}\")]\npublic override int GetHashCode()\n{{\n\tHashCode hash = new HashCode();");
+        sb.Append("///<summary>\r\n///Serves as the default hash function.\r\n///IEnumerables are hashed element-wise.\r\n///</summary>\r\n///<returns>A hash code for the current object.</returns>\r\n");
+        sb.Append($"[System.CodeDom.Compiler.GeneratedCode(\"{Utility.ToolName}\", \"{Utility.ToolVersion}\")]\r\npublic override int GetHashCode()\r\n{{\r\n\tHashCode hash = new HashCode();");
 
         ISymbol iEnumerableSymbol = context.Compilation.GetSpecialType(SpecialType.System_Collections_IEnumerable);
         ISymbol stringSymbol = context.Compilation.GetSpecialType(SpecialType.System_String);
@@ -91,15 +91,15 @@ public class GetHashCodeGenerator : ISourceGenerator
             if (!SymbolEqualityComparer.Default.Equals(members[i].Type, stringSymbol)
                 && members[i].Type.AllInterfaces.Any(sym => SymbolEqualityComparer.Default.Equals(sym, iEnumerableSymbol)))
             {
-                sb.Append($"\n\tif ({assoc.Name} != null)\n\t{{\n\t\tforeach (var element in {assoc.Name})\n\t\t{{\n\t\t\thash.Add(element);\n\t\t}}\n\t}}\n\telse\n\t{{\n\t\thash.Add({assoc.Name});\n\t}}");
+                sb.Append($"\r\n\tif ({assoc.Name} != null)\r\n\t{{\r\n\t\tforeach (var element in {assoc.Name})\r\n\t\t{{\r\n\t\t\thash.Add(element);\r\n\t\t}}\r\n\t}}\r\n\telse\r\n\t{{\r\n\t\thash.Add({assoc.Name});\r\n\t}}");
             }
             else
             {
-                sb.Append($"\n\thash.Add(this.{assoc.Name});");
+                sb.Append($"\r\n\thash.Add(this.{assoc.Name});");
             }
         }
 
-        sb.Append("\n\treturn hash.ToHashCode();\n}");
+        sb.Append("\r\n\treturn hash.ToHashCode();\r\n}");
         return sb.ToString();
     }
 }

@@ -9,7 +9,7 @@ namespace OpenLibraryNET.OLData
     /// Holds data about a list seed.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record class OLSeedData : OLContainer
+    public  partial record class OLSeedData : OLContainer
     {
         /// <summary>
         /// The ID of this seed.

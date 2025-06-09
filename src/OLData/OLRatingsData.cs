@@ -7,7 +7,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about a <see cref="OLWorkData"/>'s ratings.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLRatingsData : OLContainer
+    public  partial record OLRatingsData : OLContainer
     {
         /// <summary>
         /// The corresponding work's average rating. Null if there are no ratings.

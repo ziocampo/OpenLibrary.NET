@@ -75,14 +75,14 @@ public class EqualsGenerator : ISourceGenerator
     {
         StringBuilder sb = new StringBuilder();
 
-        sb.Append("///<summary>\n///Determines whether the specified object is equal to the current object.\n///Compares all fields by value; IEnumerables are compared by comparing the elements pairwise.\n///</summary>\n///<param name=\"other\">The object to compare with the current object.</param>\n///<returns>true if the specified object is equal to the current object; otherwise, false.</returns>\n");
+        sb.Append("///<summary>\r\n///Determines whether the specified object is equal to the current object.\r\n///Compares all fields by value; IEnumerables are compared by comparing the elements pairwise.\r\n///</summary>\r\n///<param name=\"other\">The object to compare with the current object.</param>\r\n///<returns>true if the specified object is equal to the current object; otherwise, false.</returns>\r\n");
         if (symbol.TypeKind == TypeKind.Struct)
         {
-            sb.Append($"[System.CodeDom.Compiler.GeneratedCode(\"{Utility.ToolName}\", \"{Utility.ToolVersion}\")]\npublic bool Equals({symbol.Name} other)\n{{");
+            sb.Append($"[System.CodeDom.Compiler.GeneratedCode(\"{Utility.ToolName}\", \"{Utility.ToolVersion}\")]\r\npublic bool Equals({symbol.Name} other)\r\n{{");
         }
         else
         {
-            sb.Append($"[System.CodeDom.Compiler.GeneratedCode(\"{Utility.ToolName}\", \"{Utility.ToolVersion}\")]\npublic bool Equals({symbol.Name} other)\n{{");
+            sb.Append($"[System.CodeDom.Compiler.GeneratedCode(\"{Utility.ToolName}\", \"{Utility.ToolVersion}\")]\r\npublic virtual bool Equals({symbol.Name} other)\r\n{{");
         }
 
         List<IFieldSymbol> members = symbol.GetMembers().OfType<IFieldSymbol>().ToList();
@@ -91,11 +91,11 @@ public class EqualsGenerator : ISourceGenerator
         {
             if (symbol.TypeKind == TypeKind.Struct)
             {
-                sb.Append($"\n\treturn true");
+                sb.Append($"\r\n\treturn true");
             }
             else
             {
-                sb.Append($"\n\treturn other != null");
+                sb.Append($"\r\n\treturn other != null");
             }
         }
 
@@ -113,11 +113,11 @@ public class EqualsGenerator : ISourceGenerator
 
                 if (symbol.TypeKind == TypeKind.Struct)
                 {
-                    sb.Append($"\n\treturn");
+                    sb.Append($"\r\n\treturn");
                 }
                 else
                 {
-                    sb.Append($"\n\treturn other != null &&");
+                    sb.Append($"\r\n\treturn other != null &&");
                 }
             }
             else
@@ -128,15 +128,15 @@ public class EqualsGenerator : ISourceGenerator
             if (!SymbolEqualityComparer.Default.Equals(members[i].Type, stringSymbol)
                 && members[i].Type.AllInterfaces.Any(sym => SymbolEqualityComparer.Default.Equals(sym, iEnumerableSymbol)))
             {
-                sb.Append($"\n\t(({assoc.Name} == null && other.{assoc.Name} == null) || ({assoc.Name} != null && other.{assoc.Name} != null && {assoc.Name}.SequenceEqual(other.{assoc.Name})))");
+                sb.Append($"\r\n\t(({assoc.Name} == null && other.{assoc.Name} == null) || ({assoc.Name} != null && other.{assoc.Name} != null && {assoc.Name}.SequenceEqual(other.{assoc.Name})))");
             }
             else
             {
-                sb.Append($"\n\t{assoc.Name} == other.{assoc.Name}");
+                sb.Append($"\r\n\t{assoc.Name} == other.{assoc.Name}");
             }
         }
 
-        sb.Append(";\n}");
+        sb.Append(";\r\n}");
 
 
         // TODO

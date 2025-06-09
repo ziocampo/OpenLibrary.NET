@@ -7,7 +7,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about a <see cref="OLWorkData"/>'s bookshelves.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLBookshelvesData : OLContainer
+    public  partial record OLBookshelvesData : OLContainer
     {
         /// <summary>
         /// The amount of accounts that marked the corresponding work as "Want to read".

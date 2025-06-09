@@ -78,7 +78,7 @@ namespace CodeGeneration
 
             if (symbol.ContainingNamespace != null)
             {
-                sb.AppendLine($"namespace {symbol.ContainingNamespace.ToDisplayString()}\n{{");
+                sb.AppendLine($"namespace {symbol.ContainingNamespace.ToDisplayString()}\r\n{{");
                 indent++;
             }
 
@@ -94,19 +94,19 @@ namespace CodeGeneration
 
                 foreach (var currentSymbol in containingTypes)
                 {
-                    sb.AppendIndented($"\n{GetDeclaration(currentSymbol)}\n{{", indent);
+                    sb.AppendIndented($"\r\n{GetDeclaration(currentSymbol)}\r\n{{", indent);
                     indent++;
                 }
             }
 
-            sb.AppendIndented($"\n{GetDeclaration(symbol)}\n{{", indent);
+            sb.AppendIndented($"\r\n{GetDeclaration(symbol)}\r\n{{", indent);
             indent++;
             sb.AppendIndented(contents, indent);
             indent--;
 
             while (indent >= 0)
             {
-                sb.AppendIndented("\n}", indent);
+                sb.AppendIndented("\r\n}", indent);
                 indent--;
             }
 
@@ -115,8 +115,7 @@ namespace CodeGeneration
 
         public static StringBuilder AppendIndented(this StringBuilder sb, string textBlock, int indentationLevel)
         {
-            char[] chars = new char[1] { '\n' };
-            foreach (var line in textBlock.TrimEnd().Split(chars, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var line in textBlock.TrimEnd().Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.None))
                 if (!string.IsNullOrWhiteSpace(line))
                     sb.AppendLine($"{string.Concat(Enumerable.Repeat("\t", indentationLevel))}{line}");
             return sb;

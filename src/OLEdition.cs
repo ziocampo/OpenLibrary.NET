@@ -9,7 +9,7 @@ namespace OpenLibraryNET
     /// Composite storage of various data related to an edition.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLEdition
+    public  partial record OLEdition
     {
         /// <summary>
         /// The ID of the edition.

@@ -9,7 +9,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about an edition.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLEditionData : OLContainer
+    public  partial record OLEditionData : OLContainer
     {
         /// <summary>
         /// The edition's ID.
@@ -138,7 +138,7 @@ namespace OpenLibraryNET.Data
         /// Holds the various identifiers of an edition.
         /// </summary>
         [CollectionValueEquality]
-        public sealed partial record OLEditionIdentifiers : OLContainer
+        public  partial record OLEditionIdentifiers : OLContainer
         {
             /// <summary>
             /// The Goodreads identifiers of the corresponding edition.

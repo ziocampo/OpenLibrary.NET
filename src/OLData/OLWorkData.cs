@@ -9,7 +9,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about a work.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLWorkData : OLContainer
+    public partial record OLWorkData : OLContainer
     {
         /// <summary>
         /// The ID of the work.

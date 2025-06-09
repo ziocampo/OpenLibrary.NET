@@ -9,7 +9,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about online-readable or borrowable books, along with corresponding <see cref="OLEditionData"/> and <see cref="OLBookViewAPI"/> entries.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLPartnerData : OLContainer
+    public  partial record OLPartnerData : OLContainer
     {
         /// <summary>
         /// The corresponding <see cref="OLEditionData"/>.
@@ -39,7 +39,7 @@ namespace OpenLibraryNET.Data
         /// Holds data about an online-readable book.
         /// </summary>
         [CollectionValueEquality]
-        public sealed partial record Item : OLContainer
+        public  partial record Item : OLContainer
         {
             /// <summary>
             /// The type of match. Either 'exact' or 'similar'.
@@ -81,7 +81,7 @@ namespace OpenLibraryNET.Data
             /// Holds URLs to the cover of the corresponding <see cref="Item"/>.
             /// </summary>
             [CollectionValueEquality]
-            public sealed partial record CoverURL : OLContainer
+            public  partial record CoverURL : OLContainer
             {
                 /// <summary>
                 /// Link to the cover in small resolution.

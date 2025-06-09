@@ -9,7 +9,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about recent changes made to OpenLibrary's data.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLRecentChangesData : OLContainer
+    public  partial record OLRecentChangesData : OLContainer
     {
         /// <summary>
         /// The ID of the change made.
@@ -55,7 +55,7 @@ namespace OpenLibraryNET.Data
         /// Holds data about the data entries that were changed.
         /// </summary>
         [CollectionValueEquality]
-        public sealed partial record OLChangeData : OLContainer
+        public  partial record OLChangeData : OLContainer
         {
             /// <summary>
             /// The key of the object that was changed.

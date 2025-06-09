@@ -9,7 +9,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about an author.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLAuthorData : OLContainer
+    public  partial record OLAuthorData : OLContainer
     {
         /// <summary>
         /// The ID of the author.

@@ -8,7 +8,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about a user's reading log.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLMyBooksData : OLContainer
+    public  partial record OLMyBooksData : OLContainer
     {
         /// <summary>
         /// Pagination data about the reading log.<br/>
@@ -34,7 +34,7 @@ namespace OpenLibraryNET.Data
         /// Holds data about an entry in a given reading log.
         /// </summary>
         [CollectionValueEquality]
-        public sealed partial record OLReadingLogEntry : OLContainer
+        public  partial record OLReadingLogEntry : OLContainer
         {
             /// <summary>
             /// The corresponding <see cref="OLWorkData"/>.

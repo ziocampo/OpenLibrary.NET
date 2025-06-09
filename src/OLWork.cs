@@ -10,7 +10,7 @@ namespace OpenLibraryNET
     /// Composite storage of various data related to a work.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLWork
+    public  partial record OLWork
     {
         /// <summary>
         /// The ID of the work.

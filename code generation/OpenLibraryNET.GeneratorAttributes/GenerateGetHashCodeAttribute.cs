@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace CodeGeneration_Attributes
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
-    public sealed class GenerateGetHashCodeAttribute : Attribute
+    public  class GenerateGetHashCodeAttribute : Attribute
     { }
 }

@@ -10,7 +10,7 @@ namespace OpenLibraryNET
     /// Composite storage of various data related to an author.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLAuthor
+    public  partial record OLAuthor
     {
         /// <summary>
         /// The ID of the author.

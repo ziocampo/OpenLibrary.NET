@@ -89,10 +89,13 @@ namespace OpenLibraryNET
                 UseCookies = true,
                 CookieContainer = _cookieContainer
             };
+            if (configureOptions == null) configureOptions = new Action<HttpStandardResilienceOptions>(options => options.TotalRequestTimeout = new HttpTimeoutStrategyOptions());
+            
             services.AddHttpClient(httpClientName)
                     .ConfigurePrimaryHttpMessageHandler(() => _httpHandler)
-                    //.AddHttpMessageHandler<OperationKeyHandler>()
                     .AddStandardResilienceHandler(configureOptions);
+            //.AddHttpMessageHandler<OperationKeyHandler>());
+
             if (logBuilder != null)
             {
                 services.AddLogging(logBuilder);

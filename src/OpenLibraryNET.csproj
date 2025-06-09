@@ -1,10 +1,10 @@
 ﻿	<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-
+		<Version>1.0.0.0</Version>
 		<!--
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Version>0.1.2</Version>
@@ -35,6 +35,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\code generation\OpenLibraryNET.Diagnostics\OpenLibraryNET.Diagnostics.csproj" />
 		<ProjectReference Include="C:\r\OpenLibrary.NET\code generation\OpenLibraryNET.SourceGenerators\OpenLibraryNET.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 

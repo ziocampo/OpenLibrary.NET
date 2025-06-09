@@ -7,7 +7,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about a book's ViewAPI.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLBookViewAPI : OLContainer
+    public  partial record OLBookViewAPI : OLContainer
     {
         /// <summary>
         /// The book's bibkey.

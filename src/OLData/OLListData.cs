@@ -8,7 +8,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about a user-created list.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLListData : OLContainer
+    public  partial record OLListData : OLContainer
     {
         /// <summary>
         /// The list's ID.

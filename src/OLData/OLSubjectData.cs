@@ -9,7 +9,7 @@ namespace OpenLibraryNET.Data
     /// Holds data about a subject.
     /// </summary>
     [CollectionValueEquality]
-    public sealed partial record OLSubjectData : OLContainer
+    public  partial record OLSubjectData : OLContainer
     {
         /// <summary>
         /// The name of this subject.
