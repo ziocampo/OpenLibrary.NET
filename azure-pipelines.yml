@@ -3,17 +3,38 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+trigger: none
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: NuGetToolInstaller@1
+  condition: succeeded()
+  displayName: Install nuget
+
+- task: NuGetAuthenticate@1
+  condition: succeeded()
+  displayName: Authenticate nuget
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish Anima2.Backend'
+  condition: succeeded()
+  inputs:
+    command: 'pack'
+    packagesToPack: 'src/OpenLibraryNET.csproj'
+    configuration: 'Release'
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: '1'
+    minorVersion: '0'
+    patchVersion: '0'
+
+- task: NuGetCommand@2
+  displayName: 'nuget push'
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'adfff3fe-0c13-462f-93b0-6e9667a94309'
+    allowPackageConflicts: true
