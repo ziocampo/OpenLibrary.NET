@@ -36,22 +36,22 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\code generation\OpenLibraryNET.Diagnostics\OpenLibraryNET.Diagnostics.csproj" />
-		<ProjectReference Include="C:\r\OpenLibrary.NET\code generation\OpenLibraryNET.SourceGenerators\OpenLibraryNET.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\code generation\OpenLibraryNET.SourceGenerators\OpenLibraryNET.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="C:\r\OpenLibrary.NET\code generation\OpenLibraryNET.GeneratorAttributes\OpenLibraryNET.GeneratorAttributes.csproj" PrivateAssets="All" />
+		<ProjectReference Include="..\code generation\OpenLibraryNET.GeneratorAttributes\OpenLibraryNET.GeneratorAttributes.csproj" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Analyzer Include="C:\r\OpenLibrary.NET\code generation\OpenLibraryNET.Diagnostics\bin\$(Configuration)\$(TargetFramework)\OpenLibraryNET.Diagnostics.dll" />
+		<Analyzer Include="..\code generation\OpenLibraryNET.Diagnostics\bin\$(Configuration)\$(TargetFramework)\OpenLibraryNET.Diagnostics.dll" />
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="Build">
 		<PropertyGroup>
-			<BuildCommand>"C:\r\OpenLibrary.NET\code generation\OpenLibraryNET.RemoveGeneratorAttributes\bin\$(Configuration)\$(TargetFramework)\OpenLibraryNET.RemoveGeneratorAttributes.exe"</BuildCommand>
+			<BuildCommand>"..\code generation\OpenLibraryNET.RemoveGeneratorAttributes\bin\$(Configuration)\$(TargetFramework)\OpenLibraryNET.RemoveGeneratorAttributes.exe"</BuildCommand>
 			<Argument1>"$(TargetPath)"</Argument1>
-			<Argument2>"C:\r\OpenLibrary.NET\code generation\OpenLibraryNET.GeneratorAttributes\bin\$(Configuration)\$(TargetFramework)\OpenLibraryNET.GeneratorAttributes.dll"</Argument2>
+			<Argument2>"..\code generation\OpenLibraryNET.GeneratorAttributes\bin\$(Configuration)\$(TargetFramework)\OpenLibraryNET.GeneratorAttributes.dll"</Argument2>
 		</PropertyGroup>
 		<Exec Command="$(BuildCommand) $(Argument1) $(Argument2)" ConsoleToMSBuild="true" LogStandardErrorAsError="true" WorkingDirectory="$(ProjectDir)" />
 
