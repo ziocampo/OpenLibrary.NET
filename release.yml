@@ -25,10 +25,6 @@ steps:
     command: 'pack'
     packagesToPack: 'src/OpenLibraryNET.csproj'
     configuration: 'Release'
-    versioningScheme: 'byPrereleaseNumber'
-    majorVersion: '1'
-    minorVersion: '0'
-    patchVersion: '0'
 
 - task: NuGetCommand@2
   displayName: 'nuget push'
