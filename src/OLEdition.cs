@@ -1,14 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using OpenLibraryNET.Data;
-using CodeGeneration_Attributes;
+
 
 namespace OpenLibraryNET
 {
     /// <summary>
     /// Composite storage of various data related to an edition.
     /// </summary>
-    [CollectionValueEquality]
+    
     public  partial record OLEdition
     {
         /// <summary>

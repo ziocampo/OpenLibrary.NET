@@ -1,4 +1,4 @@
-﻿using CodeGeneration_Attributes;
+﻿
 using Newtonsoft.Json;
 using OpenLibraryNET.Data;
 using OpenLibraryNET.Utility;
@@ -8,7 +8,7 @@ namespace OpenLibraryNET.OLData
     /// <summary>
     /// Holds data about a list seed.
     /// </summary>
-    [CollectionValueEquality]
+    
     public  partial record class OLSeedData : OLContainer
     {
         /// <summary>

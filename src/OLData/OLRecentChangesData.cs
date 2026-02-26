@@ -1,4 +1,4 @@
-﻿using CodeGeneration_Attributes;
+﻿
 using Newtonsoft.Json;
 using OpenLibraryNET.Utility;
 using System.Collections.ObjectModel;
@@ -8,7 +8,7 @@ namespace OpenLibraryNET.Data
     /// <summary>
     /// Holds data about recent changes made to OpenLibrary's data.
     /// </summary>
-    [CollectionValueEquality]
+    
     public  partial record OLRecentChangesData : OLContainer
     {
         /// <summary>
@@ -54,7 +54,7 @@ namespace OpenLibraryNET.Data
         /// <summary>
         /// Holds data about the data entries that were changed.
         /// </summary>
-        [CollectionValueEquality]
+        
         public  partial record OLChangeData : OLContainer
         {
             /// <summary>

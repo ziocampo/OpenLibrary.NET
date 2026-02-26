@@ -1,14 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using OpenLibraryNET.Utility;
-using CodeGeneration_Attributes;
 
 namespace OpenLibraryNET.Data
 {
     /// <summary>
     /// Holds data about an edition.
     /// </summary>
-    [CollectionValueEquality]
     public  partial record OLEditionData : OLContainer
     {
         /// <summary>
@@ -137,7 +135,7 @@ namespace OpenLibraryNET.Data
         /// <summary>
         /// Holds the various identifiers of an edition.
         /// </summary>
-        [CollectionValueEquality]
+        
         public  partial record OLEditionIdentifiers : OLContainer
         {
             /// <summary>

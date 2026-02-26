@@ -1,14 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using OpenLibraryNET.Utility;
-using CodeGeneration_Attributes;
+
 
 namespace OpenLibraryNET.Data
 {
     /// <summary>
     /// Holds data about a work.
     /// </summary>
-    [CollectionValueEquality]
+    
     public partial record OLWorkData : OLContainer
     {
         /// <summary>

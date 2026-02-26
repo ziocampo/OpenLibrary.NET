@@ -1,4 +1,4 @@
-﻿using CodeGeneration_Attributes;
+﻿
 using Newtonsoft.Json;
 
 namespace OpenLibraryNET.Data
@@ -6,7 +6,7 @@ namespace OpenLibraryNET.Data
     /// <summary>
     /// Holds data about a <see cref="OLWorkData"/>'s ratings.
     /// </summary>
-    [CollectionValueEquality]
+    
     public  partial record OLRatingsData : OLContainer
     {
         /// <summary>

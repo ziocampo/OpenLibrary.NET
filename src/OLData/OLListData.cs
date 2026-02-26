@@ -1,5 +1,4 @@
-﻿using CodeGeneration_Attributes;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 
 namespace OpenLibraryNET.Data
@@ -7,7 +6,6 @@ namespace OpenLibraryNET.Data
     /// <summary>
     /// Holds data about a user-created list.
     /// </summary>
-    [CollectionValueEquality]
     public  partial record OLListData : OLContainer
     {
         /// <summary>

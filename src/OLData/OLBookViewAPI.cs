@@ -1,12 +1,10 @@
 ﻿using Newtonsoft.Json;
-using CodeGeneration_Attributes;
 
 namespace OpenLibraryNET.Data
 {
     /// <summary>
     /// Holds data about a book's ViewAPI.
     /// </summary>
-    [CollectionValueEquality]
     public  partial record OLBookViewAPI : OLContainer
     {
         /// <summary>

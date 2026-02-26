@@ -1,4 +1,4 @@
-﻿using CodeGeneration_Attributes;
+﻿
 using Newtonsoft.Json;
 using OpenLibraryNET.Utility;
 using System.Collections.ObjectModel;
@@ -8,7 +8,7 @@ namespace OpenLibraryNET.Data
     /// <summary>
     /// Holds data about online-readable or borrowable books, along with corresponding <see cref="OLEditionData"/> and <see cref="OLBookViewAPI"/> entries.
     /// </summary>
-    [CollectionValueEquality]
+    
     public  partial record OLPartnerData : OLContainer
     {
         /// <summary>
@@ -38,7 +38,7 @@ namespace OpenLibraryNET.Data
         /// <summary>
         /// Holds data about an online-readable book.
         /// </summary>
-        [CollectionValueEquality]
+        
         public  partial record Item : OLContainer
         {
             /// <summary>
@@ -80,7 +80,7 @@ namespace OpenLibraryNET.Data
             /// <summary>
             /// Holds URLs to the cover of the corresponding <see cref="Item"/>.
             /// </summary>
-            [CollectionValueEquality]
+            
             public  partial record CoverURL : OLContainer
             {
                 /// <summary>

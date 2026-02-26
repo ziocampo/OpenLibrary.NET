@@ -2,14 +2,14 @@
 using System.Collections.ObjectModel;
 using OpenLibraryNET.Data;
 using OpenLibraryNET.Utility;
-using CodeGeneration_Attributes;
+
 
 namespace OpenLibraryNET
 {
     /// <summary>
     /// Composite storage of various data related to a work.
     /// </summary>
-    [CollectionValueEquality]
+    
     public  partial record OLWork
     {
         /// <summary>

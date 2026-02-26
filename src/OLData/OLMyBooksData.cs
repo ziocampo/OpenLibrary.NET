@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.ObjectModel;
-using CodeGeneration_Attributes;
+
 
 namespace OpenLibraryNET.Data
 {
     /// <summary>
     /// Holds data about a user's reading log.
     /// </summary>
-    [CollectionValueEquality]
+    
     public  partial record OLMyBooksData : OLContainer
     {
         /// <summary>
@@ -33,7 +33,7 @@ namespace OpenLibraryNET.Data
         /// <summary>
         /// Holds data about an entry in a given reading log.
         /// </summary>
-        [CollectionValueEquality]
+        
         public  partial record OLReadingLogEntry : OLContainer
         {
             /// <summary>

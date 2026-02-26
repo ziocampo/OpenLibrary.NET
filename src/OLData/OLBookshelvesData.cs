@@ -1,12 +1,10 @@
 ﻿using Newtonsoft.Json;
-using CodeGeneration_Attributes;
 
 namespace OpenLibraryNET.Data
 {
     /// <summary>
     /// Holds data about a <see cref="OLWorkData"/>'s bookshelves.
     /// </summary>
-    [CollectionValueEquality]
     public  partial record OLBookshelvesData : OLContainer
     {
         /// <summary>

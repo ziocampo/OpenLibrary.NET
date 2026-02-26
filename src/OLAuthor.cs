@@ -1,15 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using OpenLibraryNET.Data;
-using OpenLibraryNET.Utility;
-using CodeGeneration_Attributes;
-
 namespace OpenLibraryNET
 {
     /// <summary>
     /// Composite storage of various data related to an author.
     /// </summary>
-    [CollectionValueEquality]
     public  partial record OLAuthor
     {
         /// <summary>
